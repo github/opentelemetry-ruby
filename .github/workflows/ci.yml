@@ -3,32 +3,16 @@ name: CI
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - ahayworth-misc-redis-fixes
 
 jobs:
   test:
-    if: ${{ github.repository == 'open-telemetry/opentelemetry-ruby' }}
     strategy:
       matrix:
         include:
-          - name: Ruby 2.5
-            container: circleci/ruby:2.5-buster
-            flags: --include-simple --include-appraisal
-          - name: Ruby 2.6
-            container: circleci/ruby:2.6-buster
-            flags: --include-simple --include-appraisal
           - name: Ruby 2.7
             container: circleci/ruby:2.7-buster
             flags: --include-simple --include-appraisal --check-rubocop --check-yard
-          - name: Ruby 3.0
-            container: circleci/ruby:3.0-buster
-            flags: --include-simple --include-appraisal --exclude opentelemetry-exporter-otlp
-          - name: JRuby
-            container: circleci/jruby:latest
-            flags: --include-simple --exclude opentelemetry-resource_detectors --exclude opentelemetry-exporter-otlp
       fail-fast: false
     name: Test ${{ matrix.name }} (${{ matrix.flags }})
     runs-on: ubuntu-latest
