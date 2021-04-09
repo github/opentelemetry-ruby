@@ -76,6 +76,23 @@ services:
     <<: *base
     working_dir: /app/instrumentation/rack/example
 
+  ex-instrumentation-redis:
+    <<: *base
+    working_dir: /app/instrumentation/redis/example
+    depends_on:
+      - redis
+    environment:
+      REDIS_HOST: 'redis'
+      REDIS_PASSWORD: 'passw0rd'
+
+  ex-instrumentation-redis-test:
+    <<: *base
+    working_dir: /app/instrumentation/redis
+    depends_on:
+      - redis
+    environment:
+      TEST_REDIS_HOST: 'redis'
+
   ex-instrumentation-dalli:
     <<: *base
     environment:
@@ -117,9 +134,11 @@ services:
       - "3306:3306"
 
   redis:
-    image: redis:5.0-alpine
+    image: bitnami/redis:6.2
     volumes:
       - redis_data:/data
+    environment:
+      REDIS_PASSWORD: "passw0rd"
 
   memcached:
     image: memcached:alpine

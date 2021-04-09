@@ -44,14 +44,27 @@ end
 ## Example
 
 An example of usage can be seen in [`example/redis.rb`](https://github.com/open-telemetry/opentelemetry-ruby/blob/main/instrumentation/redis/example/redis.rb).
+You can run it via docker-compose:
+
+```
+$ docker-compose run ex-instrumentation-redis
+[container] $ bundle install && bundle exec ./redis.rb
+```
 
 ## Development
 
-You'll need Redis installed locally to run the test suite. Once you've
-installed it, start it with the included configuration:
+You'll need Redis available to run the test suite. If you have access to a local instance,
+start it with the included configuration:
 
 ```
 redis-server test/redis.conf
+```
+
+Otherwise, you can run the test suite via docker-compose:
+
+```
+$ docker-compose run ex-instrumentation-redis-test bash
+[container] $ bundle install && bundle exec rake test
 ```
 
 ## How can I get involved?
