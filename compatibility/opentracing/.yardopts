@@ -1,0 +1,9 @@
+--no-private
+--title=OpenTelemetry/OpenTracing Compatibility Shim
+--markup=markdown
+--main=README.md
+./lib/opentelemetry/compatibility/**/*.rb
+./lib/opentelemetry/compatibility.rb
+-
+README.md
+CHANGELOG.md

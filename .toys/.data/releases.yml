@@ -175,3 +175,8 @@ gems:
     directory: resource_detectors
     version_rb_path: lib/opentelemetry/resource/detectors/version.rb
     version_constant: [OpenTelemetry, Resource, Detectors, VERSION]
+
+  - name: opentelemetry-compatibility-opentracing
+    directory: compatibility/opentracing
+    version_rb_path: lib/opentelemetry/compatibility/opentracing/version.rb
+    version_constant: [OpenTelemetry, Compatibility, OpenTracing, VERSION]

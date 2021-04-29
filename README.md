@@ -104,6 +104,15 @@ gems, including Rails, Rack, Sinatra, and others, so you can start
 using OpenTelemetry with minimal changes to your application. See the
 [instrumentation README](instrumentation/) for more.
 
+## Compatibility Shims
+
+This repository contains a reference implementation of the OpenTelemetry/OpenTracing
+compatibility shim. This allows you to gradually migrate an application (which has been
+instrumented with OpenTracing) to OpenTelemetry instrumentation in gradual steps. The shim
+implements the OpenTracing API, but delegates all operations to the underlying OpenTelemetry API.
+
+See the [README](compatibility/opentracing/) for more.
+
 ## Who's using OpenTelemetry Ruby?
 
 OpenTelemetry Ruby is in use by a number of companies, including:
